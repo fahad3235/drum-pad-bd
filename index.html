@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drum Pad BD — ড্রাম প্যাড</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <button id="langBtn" class="lang" type="button">বাংলা</button>
+  <h1 id="title">🥁 Drum Pad BD</h1>
+  <p id="subtitle">Tap the pads or play a 16-step beat — all sounds are synthesized live in your browser. No downloads, no account.</p>
+</header>
+<main>
+  <section class="card">
+    <h2 id="hPads">Drum Pads</h2>
+    <p id="keysNote" class="note">Keys: A S D F G H J K play the 8 pads. First tap starts audio (browsers require a tap before sound).</p>
+    <div class="pads" id="pads"></div>
+    <p id="audioNote" class="note"></p>
+    <p id="errBox" class="err" role="alert"></p>
+  </section>
+
+  <section class="card">
+    <h2 id="hTransport">Beat Controls</h2>
+    <div class="row">
+      <button id="playBtn" class="primary" type="button">▶ Play beat</button>
+      <button id="stopBtn" type="button">⏹ Stop</button>
+      <label><span id="bpmLbl">Tempo</span>: <b id="bpmVal">120 BPM</b><br>
+        <input id="bpm" type="range" min="60" max="200" value="120"></label>
+      <label><span id="swingLbl">Swing</span>: <b id="swingVal">0%</b><br>
+        <input id="swing" type="range" min="0" max="50" value="0"></label>
+      <label><span id="volLbl">Volume</span>: <b id="volVal">80%</b><br>
+        <input id="vol" type="range" min="0" max="100" value="80"></label>
+      <button id="tapBtn" type="button">👆 Tap tempo</button>
+    </div>
+    <p id="tapNote" class="note"></p>
+  </section>
+
+  <section class="card">
+    <h2 id="hSeq">16-Step Sequencer</h2>
+    <p id="seqHint" class="note">Tap a square to add or remove that drum on that step. Beat 1 of each bar is outlined. Your pattern is saved automatically.</p>
+    <div class="seq-wrap"><div class="seq" id="seq"></div></div>
+    <div class="row" style="margin-top:12px">
+      <button id="clearSeqBtn" type="button">Clear pattern</button>
+      <button id="demoBtn" type="button">Load demo beat</button>
+      <span id="seqCount" class="note"></span>
+    </div>
+    <p id="seqEmpty" class="note"></p>
+  </section>
+
+  <section class="card">
+    <h2 id="hRec">Record &amp; Play Back</h2>
+    <p id="recHint" class="note">Record your own pad performance, then play it back. Recordings live only in this browser.</p>
+    <div class="row">
+      <button id="recBtn" type="button">● Record</button>
+      <button id="recStopBtn" type="button" disabled>■ Stop recording</button>
+      <span id="recStatus" class="note"></span>
+    </div>
+    <ul class="rec-list" id="recList"></ul>
+    <p id="recEmpty" class="note"></p>
+  </section>
+</main>
+<footer>
+  <p id="foot1">Drum Pad BD is a personal practice toy: sounds are synthesized with the Web Audio API on your device — nothing is uploaded and no audio files are downloaded. Timing depends on your device and browser; it is not a certified instrument or studio tool.</p>
+  <p id="foot2">Built offline-first: this page works with no network connection once loaded, and your pattern and recordings stay in this browser's localStorage.</p>
+</footer>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
